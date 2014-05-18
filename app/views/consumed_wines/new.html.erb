@@ -1,0 +1,38 @@
+<h3>Add a new wine to your consumed list....</h3>
+
+<div class="container">
+  <div class="form-group">
+    <%= form_for(@consumed_wine) do |f| %>
+      <%= f.label :wine %>
+      <%= f.select(:wine_id,options_from_collection_for_select(Wine.all, :id, :name)) %>
+      Wine not in the list? <%= link_to "Add a new wine", new_wine_path %> here.
+      </br>
+      </br>
+      <%= f.label :date_consumed %>
+      <%= f.date_field :date_consumed %>
+      </br>
+
+      <%= f.label :review %>
+      <%= f.text_area :review, class: "form-control" %>
+
+      <%= f.label :rating %>
+      <%= f.text_area :rating, class: "form-control" %>
+
+      <%= f.label :currency %>
+      <%= f.select(:currency_id ,options_from_collection_for_select(Currency.all, :id, :name)) %>
+
+      <%= f.label :price %>
+      <%= f.text_area :price, class: "form" %>
+      </br>
+      <%= f.label :purchased_from %>
+      <%= f.text_area :purchased_from, class: "form-control" %>
+
+      <%= f.label :form %>
+      <%= f.text_area :form, class: "form-control" %>
+
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      </br>
+      <%= f.submit "Add wine to list", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
