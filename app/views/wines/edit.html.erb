@@ -29,13 +29,6 @@
       <%= f.label :date_consumed %>
       <%= f.date_field :date_consumed %>
 
-      <%= fields_for @price do |p| %>
-        <%= p.label "Currency" %>
-        <%= p.collection_select :currency_id , Currency.all, :id, :name, {}  %>
-        <%= p.label :amount %>
-        <%= p.text_field :amount %>
-      <% end %>
-
       <%= f.label "Grapes" %>
       <%= f.collection_select :grape_ids , Grape.all, :id, :name, {}, :multiple => true, class: "form-control"  %>
 
