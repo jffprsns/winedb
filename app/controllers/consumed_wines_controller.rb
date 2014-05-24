@@ -3,13 +3,13 @@ class ConsumedWinesController < ApplicationController
   before_action :signed_in_user, only: [:new, :create, :edit, :update]
 
   def new
-    @consumed_wine = ConsumedWine.new
+    @consumed_wine = ConsumedWine.new(wine_id: params[:wine_id])
   end
 
   def create
     @consumed_wine = ConsumedWine.new(consumed_wine_params)
     if @consumed_wine.save
-      redirect_to @consumed_wine
+      redirect_to consumed_wines_url
     else
       render 'new'
     end
@@ -23,7 +23,7 @@ class ConsumedWinesController < ApplicationController
   end
 
   def index
-    @consumed_wines = ConsumedWine.find_by(user_id: current_user.id)
+    @consumed_wines = current_user.consumed_wines
   end
 
   private

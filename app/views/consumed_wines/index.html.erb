@@ -18,12 +18,12 @@
         <th>Country</th>
         <th>Price</th>
       </tr>
-    <% @consumed_wines.each do |wine| %>
+    <% @consumed_wines.each do |consumed_wine| %>
       <tr>
-        <td><%= link_to wine.name, wine_path(wine.id) %></td>
-        <td><%= wine.country.name %></td>
-        <% if wine.price %>
-          <td><%= wine.price.currency.symbol %><%= wine.price.amount %></td>
+        <td><%= link_to consumed_wine.wine.name, wine_path(consumed_wine.wine.id) %></td>
+        <td><%= consumed_wine.wine.country.name %></td>
+        <% if consumed_wine.wine.price %>
+          <td><%= consumed_wine.wine.price.currency.symbol %><%= consumed_wine.wine.price.amount %></td>
         <% else %>
           <td>Unspecified</td>
         <% end %>

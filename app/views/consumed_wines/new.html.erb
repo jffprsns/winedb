@@ -4,7 +4,7 @@
   <div class="form-group">
     <%= form_for(@consumed_wine) do |f| %>
       <%= f.label :wine %>
-      <%= f.select(:wine_id,options_from_collection_for_select(Wine.all, :id, :name)) %>
+      <%= f.select(:wine_id,options_from_collection_for_select(Wine.all, :id, :name, @consumed_wine.wine_id)) %>
       Wine not in the list? <%= link_to "Add a new wine", new_wine_path %> here.
       </br>
       </br>

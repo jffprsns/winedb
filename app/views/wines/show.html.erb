@@ -70,6 +70,7 @@
   <% if signed_in? %>
     <%= button_to 'Edit Wine Details', edit_wine_path(@wine), method: :get, class: "btn btn-large btn-primary " %>
     <%= button_to "Delete Wine", @wine , method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger " %>
+    <%= button_to 'Add to my list', new_consumed_wine_path, :method => "get", class: "btn btn-success" %>
   <% end %>
   </br>
 
